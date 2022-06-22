@@ -1,0 +1,29 @@
+{% extends 'myapp/base.html' %}
+{%block content%}
+<h1 class="text-2xl m-10 font-bold">+ Update Products</h1>
+<form method="POST" enctype="multipart/form-data" class="bg-white shadow-md m-10 p-8 w-3/5">
+    {% csrf_token %}
+    <div class="mb-4">
+        <label class="block text-sm text-gray-700 font-bold mb-2" for="">Product name</label>
+        <input class="shadow appearance-none border rounded text-gray-700 py-2 px-3 mr-10" type="text" name="name" value="{{product.name}}" id="name" placeholder="iphone">
+    </div>
+    <div class="mb-4">
+        <label class="block text-sm text-gray-700 font-bold mb-2" for="">Product price</label>
+        <input class="shadow appearance-none border rounded text-gray-700 py-2 px-3 mr-10" type="text" name="price" value="{{product.price}}" id="price" placeholder="800">
+    </div>
+    <div class="mb-4">
+        <label class="block text-sm text-gray-700 font-bold mb-2" for="">Product description</label>
+        <input class="shadow appearance-none border rounded text-gray-700 py-2 px-3 mr-10" type="text" name="desc" value="{{product.desc}}" id="desc" placeholder="This is an iphone">
+    </div>
+    <div class="mb-4">
+        <img src="{{product.image.url}}" class="w-20 h-20" alt="">
+        <label class="block text-sm text-gray-700 font-bold mb-2" for="">Product image</label>
+        <input class="py-2" type="file" accept="image/*" name="upload" id="upload">
+    </div>
+    <div>
+        <input class="mb-4 bg-green-500 text-white px-3 py-2 w-20 " type="submit" name="Add product" value="Update">
+        <a href="{% url 'myapp:my_listings' %}" class="button bg-red-500 text-white px-5 py-3">Cancel</a>
+    </div>
+</form>
+
+{%endblock%}

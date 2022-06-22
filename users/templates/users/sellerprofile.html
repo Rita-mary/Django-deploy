@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+{%block content%}
+<div class="grid p-10 grid-cols-1 lg:grid-cols-3 sm:grid-cols-1 w-3/5">
+    <div class="rounded shadow-lg">
+        <div>
+            <img src="{{ seller.profile.image.url}}" class="w-40 h-40 pl-6" alt="">
+        </div>
+        <div class="text-2xl font-bold mb-2 px-6 py-4">
+            {{seller.username}}
+        </div>
+        <div class="text-2xl font-bold mb-2 px-6 py-4">
+         📞{{seller.profile.contact_number}}
+        </div>
+    </div>
+</div>
+
+{%endblock%}
